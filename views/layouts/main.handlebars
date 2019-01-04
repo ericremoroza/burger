@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>Burger Logger</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    {{{body}}}
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $(".devourBtn").on("submit", function (event) {
+                event.preventDefault();
+
+                var burger_id = $(this).children(".burger_id").val();
+                console.log(burger_id);
+                $.ajax({
+                    method: "PUT",
+                    url: "/burgers/" + burger_id
+                }).then(function (data) {
+                    // reload page to display devoured burger in proper column
+                    location.reload();
+                });
+
+            });
+        });
+
+    </script>
+</body>
+
+
+</html>
